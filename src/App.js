@@ -1,8 +1,9 @@
+import RegistrationForm from "./components/RegistrationForm";
 function App() {
   return (
-    <div>
-      App goes here
-    </div>
+    <main className="App">
+      <RegistrationForm />
+    </main>
   );
 }
 
