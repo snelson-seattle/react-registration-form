@@ -76,7 +76,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <section>
+    <section className="bg-black/40 flex flex-col justify-start p-4 w-full max-w-[420px] min-h-[400px]">
       <p
         ref={errRef}
         className={errMsg ? "errMsg" : "offscreen"}
@@ -84,10 +84,13 @@ const RegistrationForm = () => {
       >
         {errMsg}
       </p>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className="text-[32px]">Register</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-evenly grow pb-4"
+      >
         {/* USERNAME LABEL AND FIELD*/}
-        <label htmlFor="username">
+        <label htmlFor="username" className="mt-4 text-lg">
           Username:
           <span className={validName ? "valid" : "hide"}>
             <FontAwesomeIcon icon={faCheck} />
@@ -98,6 +101,7 @@ const RegistrationForm = () => {
         </label>
 
         <input
+          className="rounded-lg p-1 text-2xl text-black"
           type="text"
           id="username"
           ref={userRef}
@@ -124,7 +128,7 @@ const RegistrationForm = () => {
         {/* END - USERNAME LABEL AND FIELD*/}
 
         {/* PASSWORD LABEL AND FIELD*/}
-        <label htmlFor="password">
+        <label htmlFor="password" className="mt-4 text-lg">
           Password:
           <span className={validPwd ? "valid" : "hide"}>
             <FontAwesomeIcon icon={faCheck} />
@@ -135,6 +139,7 @@ const RegistrationForm = () => {
         </label>
 
         <input
+          className="rounded-lg p-1 text-2xl text-black"
           type="password"
           id="password"
           onChange={(e) => setPwd(e.target.value)}
@@ -163,7 +168,7 @@ const RegistrationForm = () => {
         {/* END - PASSWORD LABEL AND FIELD*/}
 
         {/* CONFIRM PASSWORD LABEL AND FIELD*/}
-        <label htmlFor="confirm">
+        <label htmlFor="confirm" className="mt-4 text-lg">
           Confirm Password:
           <span className={validMatch && matchPwd ? "valid" : "hide"}>
             <FontAwesomeIcon icon={faCheck} />
@@ -174,6 +179,7 @@ const RegistrationForm = () => {
         </label>
 
         <input
+          className="rounded-lg p-1 text-2xl text-black"
           type="password"
           id="confirm"
           onChange={(e) => setMatchPwd(e.target.value)}
@@ -194,17 +200,21 @@ const RegistrationForm = () => {
         {/* END - CONFIRM PASSWORD LABEL AND FIELD*/}
 
         <button
+          className={`p-2 mt-4 rounded-lg text-2xl cursor-pointer bg-blue-700
+           disabled:text-gray-400 disabled:cursor-not-allowed disabled:bg-gray-700`}
           disabled={!validName || !validPwd || !validMatch ? true : false}
         >
           Sign Up
         </button>
       </form>
 
-      <p>
+      <p className="text-lg">
         Already registered? <br />{" "}
-        <span className="line">
+        <span className="inline-block">
           {/* Add react router link here*/}
-          <a href="#">Sign In</a>
+          <a href="#" className="text-white visited:text-white underline">
+            Sign In
+          </a>
         </span>
       </p>
       <p></p>
